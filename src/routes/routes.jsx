@@ -1,16 +1,27 @@
-import ReactDOM from "react-dom/client";
 import { createBrowserRouter } from "react-router";
-import { RouterProvider } from "react-router/dom";
+import MainLayout from "../layout/MainLayout";
+import Homepage from "../pages/Homepage";
+import AboutUs from "../pages/AboutUs";
+import Profile from "../pages/Profile";
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Home/>,
-    index: true,
-    children: [
+
+
+export const router = createBrowserRouter([
+    {
+        path: "/",
+        element: <MainLayout />,
+        children:[
+        {   index: true,
+            element: <Homepage />,
+        },
         {
-            
-        }
-    ]
-  },
-]);
+            path:"/about-us",
+            element: <AboutUs />
+        },
+        {
+            path:"/profile",
+            element: <Profile />
+        },
+        ]
+    }
+])
